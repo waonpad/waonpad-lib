@@ -1,19 +1,57 @@
 {
-  "name": "bun-temp",
-  "module": "index.ts",
+  "name": "@waonpad/waonpad-lib",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "waonpad",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/waonpad/waonpad-lib.git",
+    "directory": ""
+	},
+	"bugs": {
+		"url": "https://github.com/waonpad/waonpad-lib/issues"
+	},
+  "homepage": "https://github.com/waonpad/waonpad-lib#readme",
+  "license": "MIT",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/cjs/index.js",
+      "require": "./dist/esm/index.js"
+    }
+  },
+  "files": ["dist", "src"],
+	"sideEffects": false,
+  "private": false,
   "scripts": {
+    "prepare": "husky",
+    "prepublishOnly": "$npm_execpath run t && $npm_execpath run tst && $npm_execpath run build",
     "fmt": "biome format --write .",
     "lnt": "biome lint --write .",
     "che": "biome check --write .",
     "tst": "echo 'vitest run してください'",
     "tst:w": "vitest watch --silent",
-    "tst:ci": "vitest run --silent"
+    "tst:ci": "vitest run --silent",
+    "t": "tsc --noEmit",
+    "build": "$npm_execpath run clean && $npm_execpath run build:cjs && $npm_execpath run build:esm",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "clean": "rimraf dist",
+    "publish": "npm publish --access public",
+    "v:patch": "npm version patch",
+    "v:minor": "npm version minor",
+    "v:major": "npm version major"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@types/bun": "latest",
     "husky": "^9.1.4",
+    "rimraf": "^6.0.1",
     "vitest": "^2.0.5"
   },
   "peerDependencies": {

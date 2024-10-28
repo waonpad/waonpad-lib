@@ -4,5 +4,6 @@
     "module": "commonjs",
     "lib": ["es2020"],
     "outDir": "./dist/cjs"
-  }
+  },
+  "exclude": ["**/*.test.*"]
 }

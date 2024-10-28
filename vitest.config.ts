@@ -1,5 +1,5 @@
-import path from 'path';
-import { defineConfig } from 'vitest/config';
+// import { resolve } from "node:path";
+import { defineConfig } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,10 +7,10 @@ export default defineConfig({
   test: {
     globals: false,
     // environment: 'happy-dom',
-    include: ['src/**/*.test.{js,ts,jsx,tsx}'],
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+    include: ["src/**/*.test.{ts,tsx}"],
+    // alias: {
+    //   "@": resolve(__dirname, "./src"),
+    // },
     setupFiles: [],
   },
 });

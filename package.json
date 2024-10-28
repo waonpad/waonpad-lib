@@ -1,19 +1,19 @@
 {
   "name": "@waonpad/waonpad-lib",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "keywords": [],
   "author": "waonpad",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/waonpad/waonpad-lib.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waonpad/waonpad-lib.git",
     "directory": ""
-	},
-	"bugs": {
-		"url": "https://github.com/waonpad/waonpad-lib/issues"
-	},
+  },
+  "bugs": {
+    "url": "https://github.com/waonpad/waonpad-lib/issues"
+  },
   "homepage": "https://github.com/waonpad/waonpad-lib#readme",
-  "license": "MIT",
+  "license": "Unlicense",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -25,18 +25,21 @@
       "require": "./dist/esm/index.js"
     }
   },
-  "files": ["dist", "src"],
-	"sideEffects": false,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
   "private": false,
   "scripts": {
-    "prepare": "husky",
-    "prepublishOnly": "$npm_execpath run t && $npm_execpath run tst && $npm_execpath run build",
+    "prepare": "lefthook install",
+    "prepublishOnly": "$npm_execpath run t && $npm_execpath run test && $npm_execpath run build",
     "fmt": "biome format --write .",
     "lnt": "biome lint --write .",
     "che": "biome check --write .",
-    "tst": "echo 'vitest run してください'",
-    "tst:w": "vitest watch --silent",
-    "tst:ci": "vitest run --silent",
+    "test": "vitest run",
+    "test:w": "vitest watch --silent",
+    "test:ci": "vitest run --silent",
     "t": "tsc --noEmit",
     "build": "$npm_execpath run clean && $npm_execpath run build:cjs && $npm_execpath run build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
@@ -50,7 +53,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@types/bun": "latest",
-    "husky": "^9.1.4",
+    "lefthook": "^1.8.1",
     "rimraf": "^6.0.1",
     "vitest": "^2.0.5"
   },

@@ -27,7 +27,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "!**/*.test.*"
   ],
   "sideEffects": false,
   "private": false,
